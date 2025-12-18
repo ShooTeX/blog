@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 
 import cloudflare from '@astrojs/cloudflare';
 
@@ -14,5 +14,21 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()]
+  },
+  
+  experimental: {
+    svgo: true,
+    fonts: [
+      {
+        provider: fontProviders.google(),
+        name: "Raleway",
+        cssVariable: "--font-raleway",
+      },
+      {
+        provider: fontProviders.google(),
+        name: "Noto Sans Mono",
+        cssVariable: "--font-noto-sans-mono"
+      }
+    ]
   }
 });

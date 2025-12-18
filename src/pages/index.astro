@@ -1,11 +1,51 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Logo from '../assets/stx.svg';
+import QRCode from "qrcode";
+import { actions } from 'astro:actions';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
----
+let QRCodeSVG = await QRCode.toString('https://blog.stx.wtf', {
+  type: 'svg',
+  margin: 0,
+  width: 120,
+});
 
+QRCodeSVG = QRCodeSVG.replace("#ffffff", "transparent");
+QRCodeSVG = QRCodeSVG.replace("#000000", "currentColor");
+
+const result = Astro.getActionResult(actions.submitEmail);
+
+console.log(result);
+---
 <Layout>
-	<Welcome />
+  <main>
+    <div class="flex flex-col justify-center items-center gap-8 min-h-screen">
+      <div class="flex justify-center items-center w-full gap-4">
+        <div class="text-magenta-500" set:html={QRCodeSVG} />
+        <div class="flex flex-col items-center">
+          <Logo width="150" height="100" fill="currentColor" />
+          <h2 class="font-mono opacity-50 text-sm">coming soon...</h2>
+        </div>
+      </div>
+      <div class="flex flex-col">
+        {!result?.data?.success ?
+          <form class="flex" method="POST" action={actions.submitEmail}>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              required
+              placeholder="Enter your email"
+              class="px-4 py-2 rounded-md rounded-r-none text-black bg-magenta-100 focus:outline-none focus:ring-2 focus:ring-magenta-500"
+            />
+            <button type="submit" class="bg-magenta-500 text-white px-4 py-2 rounded-l-none rounded-md hover:bg-magenta-600">
+              Notify Me
+            </button>
+          </form>
+          <span class="ml-4 self-center text-xs italic mt-2 opacity-50">* I'll never share your email, I promise.</span>
+        : <span>❤️</span>
+        }
+      </div>
+    </div>
+  </main>
 </Layout>

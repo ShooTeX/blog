@@ -13,6 +13,10 @@
     "@astrojs/db": "^0.18.3",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.6",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "@types/qrcode": "^1.5.6"
   }
 }

@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-raleway), system-ui, sans-serif;
+  --font-mono: var(--font-noto-sans-mono), ui-monospace, monospace;
+
+  --color-magenta-50: oklch(0.97 0.03 330);
+  --color-magenta-100: oklch(0.94 0.06 330);
+  --color-magenta-200: oklch(0.88 0.12 330);
+  --color-magenta-300: oklch(0.79 0.20 330);
+  --color-magenta-400: oklch(0.68 0.28 330);
+  --color-magenta-500: oklch(0.62 0.32 330);
+  --color-magenta-600: oklch(0.57 0.32 330);
+  --color-magenta-700: oklch(0.46 0.26 330);
+  --color-magenta-800: oklch(0.39 0.22 330);
+  --color-magenta-900: oklch(0.33 0.18 330);
+  --color-magenta-950: oklch(0.23 0.12 330);
+}
