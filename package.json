@@ -13,10 +13,13 @@
     "@astrojs/db": "^0.18.3",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.6",
-    "tailwindcss": "^4.1.18",
-    "qrcode": "^1.5.4"
+    "drizzle-orm": "^0.45.1",
+    "qrcode": "^1.5.4",
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
-    "@types/qrcode": "^1.5.6"
+    "@types/qrcode": "^1.5.6",
+    "dotenv": "^17.2.3",
+    "drizzle-kit": "^0.31.8"
   }
 }
