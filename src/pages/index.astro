@@ -7,13 +7,15 @@ import Layout from '../layouts/Layout.astro';
 export const prerender = false;
 
 let QRCodeSVG = await QRCode.toString('https://blog.stx.wtf', {
-  type: 'svg',
   margin: 0,
+  type: 'svg',
   width: 120,
 });
 
 QRCodeSVG = QRCodeSVG.replace("#ffffff", "transparent");
 QRCodeSVG = QRCodeSVG.replace("#000000", "currentColor");
+
+const test = undefined;
 
 const result = Astro.getActionResult(actions.submitEmail);
 ---

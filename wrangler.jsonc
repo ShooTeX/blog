@@ -1,24 +1,21 @@
 {
-	"main": "dist/_worker.js/index.js",
-	"name": "blog",
-	"compatibility_date": "2025-12-18",
-	"compatibility_flags": [
-		"nodejs_compat",
-		"global_fetch_strictly_public"
-	],
-	"assets": {
-		"binding": "ASSETS",
-		"directory": "./dist"
-	},
-	"observability": {
-		"enabled": true
-	},
-	"d1_databases": [
-		{
-			"binding": "DB",
-			"database_name": "blog",
-			"database_id": "658447c4-87a8-4724-a837-b4ed72dec021",
-      "migrations_dir": "drizzle/migrations"
-		}
-	]
+  "main": "dist/_worker.js/index.js",
+  "name": "blog",
+  "compatibility_date": "2025-12-18",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist",
+  },
+  "observability": {
+    "enabled": true,
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "blog",
+      "database_id": "658447c4-87a8-4724-a837-b4ed72dec021",
+      "migrations_dir": "drizzle/migrations",
+    },
+  ],
 }

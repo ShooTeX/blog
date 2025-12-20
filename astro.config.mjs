@@ -1,22 +1,16 @@
+import cloudflare from "@astrojs/cloudflare";
+import tailwindcss from "@tailwindcss/vite";
 // @ts-check
-import { defineConfig, fontProviders } from 'astro/config';
-
-import cloudflare from '@astrojs/cloudflare';
-
-import tailwindcss from '@tailwindcss/vite';
+import { defineConfig, fontProviders } from "astro/config";
+import oxlintPlugin from "vite-plugin-oxlint";
 
 // https://astro.build/config
 export default defineConfig({
   adapter: cloudflare({
-    platformProxy: {enabled: true}
+    platformProxy: { enabled: true },
   }),
 
-  vite: {
-    plugins: [tailwindcss()]
-  },
-  
   experimental: {
-    svgo: true,
     fonts: [
       {
         provider: fontProviders.google(),
@@ -26,8 +20,13 @@ export default defineConfig({
       {
         provider: fontProviders.google(),
         name: "Noto Sans Mono",
-        cssVariable: "--font-noto-sans-mono"
-      }
-    ]
-  }
+        cssVariable: "--font-noto-sans-mono",
+      },
+    ],
+    svgo: true,
+  },
+
+  vite: {
+    plugins: [tailwindcss(), oxlintPlugin()],
+  },
 });
